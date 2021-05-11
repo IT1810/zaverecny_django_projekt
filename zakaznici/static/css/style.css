@@ -1,0 +1,62 @@
+table th{
+    color: white;
+    background-color: #104c62;
+}
+
+table td{
+    color: white;
+    background-color: #83DA7F;
+}
+
+body{
+    background-color:#208665;
+}
+
+.nadpis{
+    background-color:#3D7A92;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content{
+    flex: 1 0 auto;
+    color:white;
+}
+
+footer{
+    width: 100%;
+    text-align:center;
+    background-color: #22657F;
+    color:white;
+}
+
+.container-fluid p{
+    background-color: #22657F;
+    padding: 0.5em;
+    width: 10em;
+
+}
+
+header{
+
+    color: white;
+    padding: 1em;
+    background-color: #22657F;
+
+}
+
+.navbar{
+    background-color: #22657F;
+}
+
+.list-group-item {
+    background-color:#22657F;
+}
+
+.list-group-item p{
+    background-color: red;
+}

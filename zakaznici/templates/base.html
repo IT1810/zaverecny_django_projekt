@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Pruzkum zakazniku mobilnich operatoru {% endblock %}</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    {% load static %}
+    {% block css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="content">
+        {% block header %}{% include "page/header.html" %}{% endblock %}
+        {% block navbar %}{% include "page/navbar.html"  %}{% endblock %}
+        <div class="container-fluid">
+            {% block content %} {% endblock %}
+        </div>
+    </div>
+      {% block footer %} {% include "page/footer.html" %} {% endblock %}
+</body>
+</html>

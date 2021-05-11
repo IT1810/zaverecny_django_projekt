@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-    <meta charset="UTF-8">
-    <title>Zákazníci</title>
-</head>
-<body>
-    <h1>Toto je průzkum zákazníků mobilního operátora</h1>
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+<div class="row mt-3 mb-3 p-3 nadpis">
+    <div class="col-sm-12">
+        <h2 class="text-center ">Všichni zákazníci</h2>
+    </div>
+</div>
+<div class="row" >
+    <div class="col-md-6">
+    <h2>Zakaznici</h2>
+    <ul class="list-group">
+    {% for customer in customers %}
+    <li class="list-group-item">
+        <p>{{ customer.jmeno}} {{customer.prijmeni}}</p>
+
+        <p>{{ customer.druhotne_sluzby }}</p>
+
+        {% for contract in contracts %}
+            {% if customer.jmeno == contract.zakaznik.jmeno and customer.prijmeni == customer.prijmeni %}
+
+            <p>{{ contract.operator.nazev }}</p>
+            {% endif %}
+        {% endfor %}
+        <p>{{ customer.jmeno}} {{customer.prijmeni}}</p>
+    </li>
+    {% endfor %}
+    </ul>
+    </div>
+</div>
+
+<p>Počet zákazníků: {{ num_customers }}</p>
+{% endblock %}

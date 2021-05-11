@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row mt-3 mb-3 p-3 nadpis">
+    <div class="col-sm-12">
+        <h2 class="text-center ">Všichni zákazníci</h2>
+    </div>
+</div>
+<div class="row" >
+    <table class="table table-bordered bg-warning">
+        <thead class="text-center">
+            <tr style="color:blue;">
+                <th>Jmeno zákazníka</th>
+                <th>Příjmení zákazníka</th>
+                <th>Email zákazníka</th>
+                <th>Operátor</th>
+            </tr>
+        </thead>
+        <tbody>
+                {% for customer in prehled_zakazniku %}
+                    <tr>
+                        <td>{{ customer.jmeno }}</td>
+                        <td>{{ customer.prijmeni}}</td>
+                        <td>{{ customer.email}}</td>
+                        {% for contract in contracts %}
+
+                            {% if customer.jmeno == contract.zakaznik.jmeno and customer.prijmeni == customer.prijmeni %}
+                               <td>{{ contract.operator.nazev }}</td>
+                            {% endif %}
+
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<p>Počet zákazníků: {{ num_customers }}</p>
+{% endblock %}

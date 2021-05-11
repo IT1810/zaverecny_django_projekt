@@ -1,4 +1,4 @@
-#Průzkum zákazníků mobilního operátora
-##Django Framework
+# Průzkum zákazníků mobilního operátora
+## Django Framework
 
 Autor: Tomáš Kuča
