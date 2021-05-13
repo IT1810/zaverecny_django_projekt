@@ -6,27 +6,11 @@
     </div>
 </div>
 <div class="row" >
-    <div class="col-md-6">
-    <h2>Zakaznici</h2>
-    <ul class="list-group">
-    {% for customer in customers %}
-    <li class="list-group-item">
-        <p>{{ customer.jmeno}} {{customer.prijmeni}}</p>
-
-        <p>{{ customer.druhotne_sluzby }}</p>
-
-        {% for contract in contracts %}
-            {% if customer.jmeno == contract.zakaznik.jmeno and customer.prijmeni == customer.prijmeni %}
-
-            <p>{{ contract.operator.nazev }}</p>
-            {% endif %}
-        {% endfor %}
-        <p>{{ customer.jmeno}} {{customer.prijmeni}}</p>
-    </li>
-    {% endfor %}
-    </ul>
-    </div>
+    {% include 'blocks/zakaznici.html' %}
+    {% include 'blocks/tarify.html' %}
+    {% include 'blocks/druhotne_sluzby.html' %}
 </div>
 
-<p>Počet zákazníků: {{ num_customers }}</p>
+
+
 {% endblock %}

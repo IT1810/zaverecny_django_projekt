@@ -1,0 +1,13 @@
+<div class="col-md-3" id="sluzby">
+        <h2>Druhotné Služby</h2>
+        <p>Počet služeb:{{ num_sluzby }}</p>
+    <h3>Operator</h3>
+    <ul class="list-group">
+            <p class="bg-info"> Zde bude pocet druhotnych sluzeb jednotlivych operatoru a dve sluzby od každého operátora</p>
+    <!--regroup macro -->
+
+        {% for sluzba in sluzby %}
+        <li class="list-group-item">{{sluzba.nazev}}</li>
+        {% endfor %}
+        </ul>
+</div>

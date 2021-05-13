@@ -37,7 +37,7 @@ footer{
 .container-fluid p{
     background-color: #22657F;
     padding: 0.5em;
-    width: 10em;
+    /*width: 10em;*/
 
 }
 
@@ -53,6 +53,35 @@ header{
     background-color: #22657F;
 }
 
+#zakaznici, .podrobnosti div.text{
+    background-color:#22657F;
+}
+
+.podrobnosti div.text{
+    margin:0.2em;
+}
+
+.text1-left{
+    background-color:#22657F;
+}
+
+.text1-right{
+    background-color:#22657F;
+    margin: 0;
+}
+
+div.alert p{
+    border-radius:10px;
+    background-color:#FF0000;
+    border: 0.5px solid #B20000;
+}
+
+#zakaznici h2, .podrobnosti h2{
+    background-color:#104C62;
+    margin-bottom:0.2em;
+    text-align:center;
+}
+
 .list-group-item {
     background-color:#22657F;
 }
@@ -60,3 +89,4 @@ header{
 .list-group-item p{
     background-color: red;
 }
+

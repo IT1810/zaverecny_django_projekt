@@ -1,0 +1,61 @@
+{% extends "base.html"%}
+{% block title%}Podrobnosti zákazníka {% endblock%}
+{% block content%}
+<div class="row mb-3 p-3 nadpis">
+    <div class="col-sm-12">
+        <h2 class="display-4 text-center">{{osoba}}Podrobné informace</h2>
+    </div>
+</div>
+
+<div class="row podrobnosti">
+    <div class="col-lg-6 mb-3">
+        <h2 class="display-3">{{podrobnosti_zakaznika.jmeno}} {{podrobnosti_zakaznika.prijmeni}}</h2>
+        <div class="row text">
+            <div class="col-lg-6">
+                <h3>Adresa</h3>
+                <p>{{podrobnosti_zakaznika.jmeno}} {{podrobnosti_zakaznika.prijmeni}}</p>
+                <p>{{podrobnosti_zakaznika.ulice}} {{podrobnosti_zakaznika.cp}}</p>
+                <p>{{podrobnosti_zakaznika.psc}} {{podrobnosti_zakaznika.mesto}}</p>
+            </div>
+            <div class="col-lg-6">
+                {% for contract in contracts%}
+                {% if podrobnosti_zakaznika.jmeno == contract.zakaznik.jmeno and podrobnosti_zakaznika.prijmeni == contract.zakaznik.prijmeni %}
+                <p>Operator: {{contract.operator.nazev}}</p>
+                {% endif %}
+                {% endfor%}
+                <p>Email: {{podrobnosti_zakaznika.email}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6 mb-3">
+        <h2 class="display-4 p-3">Sluzby a tarif zakaznika</h2>
+        <div class="row m-1">
+            <div class="col-lg-6 text1-left">
+                <h3>Sluzby</h3>
+                {% if podrobnosti_zakaznika.druhotne_sluzby.all %}
+                {% for sluzba in podrobnosti_zakaznika.druhotne_sluzby.all %}
+                <p>{{sluzba.nazev}}</p>
+                <p>{{sluzba.cena}}
+                <p>{{sluzba.operator.nazev}}</p>
+                <p>{{sluzba.popis}}</p>
+                {% endfor %}
+                {% else %}
+                <div class="alert">
+                    <p>Nemáte žádné služby od nějakého mobilního operátora</p>
+                </div>
+                {% endif %}
+            </div>
+            <div class="col-lg-6 text1-right">
+                <h3>Tarify</h3>
+                {% for contract in contracts%}
+                {% if podrobnosti_zakaznika.jmeno == contract.zakaznik.jmeno and podrobnosti_zakaznika.prijmeni == contract.zakaznik.prijmeni %}
+                <p>Tarif: {{ contract.tarif.nazev}}</p>
+                <p>Operator: {{contract.operator.nazev}}</p>
+                {% endif %}
+                {% endfor%}
+                <p>Email: {{podrobnosti_zakaznika.email}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}

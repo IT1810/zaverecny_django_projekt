@@ -1,0 +1,27 @@
+<div class="col-md-6" id="zakaznici">
+        <h2 class="text-center">Zakaznici</h2>
+        <p>Počet zákazníků: {{ num_customers }}</p>
+        {% for customer in customers %}
+        <hr>
+        <div class="row">
+                <div class="col-md-6">
+                        <p>Jméno: {{ customer.jmeno}}</p>
+                </div>
+                <div class="col-md-6">
+                        <p>Příjmení: {{customer.prijmeni}}</p>
+                </div>
+        </div>
+        {% if customer.druhotne_sluzby.all %}
+        <h4>Sluzby</h4>
+
+        {% for  sluz in customer.druhotne_sluzby.all %}
+        <p>Sluzba {{ forloop.counter0 |add:"1"}}: {{ sluz.nazev }}</p>
+        {% endfor %}
+        {% endif %}
+        {% for contract in contracts %}
+            {% if customer.jmeno == contract.zakaznik.jmeno and customer.prijmeni == contract.zakaznik.prijmeni %}
+        <p>Mobilni operator: {{ contract.operator.nazev }}</p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+</div>
