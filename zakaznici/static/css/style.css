@@ -1,3 +1,13 @@
+ form th, form td{
+    color: white;
+    background-color: #83DA7F !important;
+}
+
+div.container form{
+    background-color: #83DA7F;
+    padding: 2em;
+}
+
 table th{
     color: white;
     background-color: #104c62;

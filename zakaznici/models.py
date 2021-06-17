@@ -71,7 +71,8 @@ class Tarif(models.Model):
     operator = models.ForeignKey(MobilniOperator, on_delete=models.CASCADE, blank=True, null=True)
 
     class Meta:
-        ordering = ['operator']
+        #ordering = ['operator']
+        order_with_respect_to = 'operator'
 
     def __str__(self):
         return f'Nazev: {self.nazev}, cena: {self.cena}, operator: {self.operator}'
