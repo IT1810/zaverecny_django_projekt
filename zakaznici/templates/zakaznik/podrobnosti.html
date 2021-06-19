@@ -58,4 +58,16 @@
         </div>
     </div>
 </div>
+{% if perms.zakaznici.change_zakaznik or perms.zakaznici.delete_zakaznik %}
+<div class="row mb-3">
+    <div class="col-sm-12 text-center">
+        {% if perms.zakaznici.change_zakaznik %}
+        <a href="{% url 'zakaznik-update' podrobnosti_zakaznika.pk %}" class="btn btn-primary">Upravit</a>
+        {% endif %}
+        {% if perms.zakaznici.delete_zakaznik %}
+        <a href="{% url 'zakaznik-delete' podrobnosti_zakaznika.pk %}" class="btn btn-danger">Smazat</a>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
 {% endblock%}

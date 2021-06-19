@@ -22,7 +22,7 @@ body{
     background-color:#208665;
 }
 
-.nadpis{
+.nadpis , .nadpis h2{
     background-color:#3D7A92;
 }
 
@@ -96,7 +96,16 @@ div.alert p{
     background-color:#22657F;
 }
 
+h2{
+    background-color:#104C62;
+}
+
+
+
 .list-group-item p{
     background-color: red;
 }
 
+.alert{
+    background-color:#22657F;
+}

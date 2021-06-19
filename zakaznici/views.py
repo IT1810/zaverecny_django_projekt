@@ -51,12 +51,14 @@ class TarifListView(ListView):
 
 class ZakaznikCreateView(CreateView):
     model = Zakaznik
+    success_url = reverse_lazy('prehled_zakazniku')
     template_name = 'zakaznik/zakaznik_form.html'
     fields = ['jmeno', 'prijmeni', 'psc', 'ulice', 'mesto', 'cp', 'email', 'druhotne_sluzby']
 
 
 class ZakaznikUpdateView(UpdateView):
     model = Zakaznik
+    success_url = reverse_lazy('prehled_zakazniku')
     template_name = 'zakaznik/zakaznik_bootstrap_form.html'
     form_class = ZakaznikModelForm
 
