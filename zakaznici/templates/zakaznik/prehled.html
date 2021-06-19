@@ -9,7 +9,7 @@
     <table class="table table-bordered bg-warning">
         <thead class="text-center">
             <tr style="color:blue;">
-                <th>Jmeno zákazníka</th>
+                <th>Jméno zákazníka</th>
                 <th>Email zákazníka</th>
                 <th>Operátor</th>
             </tr>
@@ -36,7 +36,7 @@
 {% if perms.zakaznici.add_zakaznik %}
 <div class="row mb-3">
     <div class="col-sm-12 text-center">
-        <a href="{% url 'zakaznik-create' %}" class="btn btn-success">Nový film</a>
+        <a href="{% url 'zakaznik-create' %}" class="btn btn-success">Nový zákazník</a>
     </div>
 </div>
 {% endif %}

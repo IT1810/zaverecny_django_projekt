@@ -8,4 +8,4 @@ class ZakaznikModelForm(ModelForm):
     class Meta:
         model = Zakaznik
         fields = ['jmeno', 'prijmeni', 'psc', 'ulice', 'mesto', 'cp', 'email', 'druhotne_sluzby']
-        labels = {'jmeno': 'Jméno zákazníka','prijmeni': 'Přijmení zákazníka', 'psc':'PSČ','ulice':'Ulice', 'mesto':'Město', 'cp':'Číslo popisné', 'email':'Email'}
+        labels = {'jmeno': 'Jméno zákazníka','prijmeni': 'Přijmení zákazníka', 'psc':'PSČ','ulice':'Ulice', 'mesto':'Město', 'cp':'Číslo popisné', 'email':'Email', 'druhotne_sluzby':'Druhotné služby'}

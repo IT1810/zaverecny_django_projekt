@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -49,21 +50,27 @@ class TarifListView(ListView):
     context_object_name = 'operatori'
     queryset = MobilniOperator.objects.order_by('nazev').all()
 
-class ZakaznikCreateView(CreateView):
+class ZakaznikCreateView(LoginRequiredMixin, PermissionRequiredMixin,CreateView):
     model = Zakaznik
     success_url = reverse_lazy('prehled_zakazniku')
     template_name = 'zakaznik/zakaznik_form.html'
     fields = ['jmeno', 'prijmeni', 'psc', 'ulice', 'mesto', 'cp', 'email', 'druhotne_sluzby']
+    login_url = '/accounts/login/'
+    permission_required = 'zakaznici.add_zakaznik'
 
 
-class ZakaznikUpdateView(UpdateView):
+class ZakaznikUpdateView(LoginRequiredMixin, PermissionRequiredMixin,UpdateView):
     model = Zakaznik
     success_url = reverse_lazy('prehled_zakazniku')
     template_name = 'zakaznik/zakaznik_bootstrap_form.html'
     form_class = ZakaznikModelForm
+    login_url = '/accounts/login/'
+    permission_required = 'zakaznici.change_zakaznik'
 
 
 
-class ZakaznikDeleteView(DeleteView):
+class ZakaznikDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Zakaznik
     success_url = reverse_lazy('prehled_zakazniku')
+    login_url = '/accounts/login/'
+    permission_required = 'zakaznici.delete_zakaznik'

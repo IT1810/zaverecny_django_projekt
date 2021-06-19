@@ -1,5 +1,5 @@
 <div class="col-md-6" id="zakaznici">
-        <h2 class="text-center">Zakaznici</h2>
+        <h2 class="text-center">Zákazníci</h2>
         <p>Počet zákazníků: {{ num_customers }}</p>
         {% for customer in customers %}
         <hr>
@@ -12,7 +12,7 @@
                 </div>
         </div>
         {% if customer.druhotne_sluzby.all %}
-        <h4>Sluzby</h4>
+        <h4>Služby</h4>
 
         {% for  sluz in customer.druhotne_sluzby.all %}
         <p>Sluzba {{ forloop.counter0 |add:"1"}}: {{ sluz.nazev }}</p>
